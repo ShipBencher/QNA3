@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { formatDistanceToNow } from 'date-fns';
 import { ArrowUp, ArrowDown, Check } from 'lucide-react';
@@ -6,11 +6,44 @@ import { MOCK_QUESTIONS } from '../data/mockQuestions';
 
 export default function QuestionDetail() {
   const { id } = useParams();
-  const question = MOCK_QUESTIONS.find(q => q.id === id);
+  const initialQuestion = MOCK_QUESTIONS.find(q => q.id === id);
+  const [question, setQuestion] = useState(initialQuestion);
 
   if (!question) {
     return <div>Question not found</div>;
   }
+
+  const handleVote = (questionId: string, voteType: 'up' | 'down') => {
+    setQuestion((prevQuestion) => {
+      if (prevQuestion && prevQuestion.id === questionId) {
+        return {
+          ...prevQuestion,
+          votes: voteType === 'up' ? prevQuestion.votes + 1 : prevQuestion.votes - 1,
+        };
+      }
+      return prevQuestion;
+    });
+  };
+
+  const handleAnswerVote = (answerId: string, voteType: 'up' | 'down') => {
+    setQuestion((prevQuestion) => {
+      if (prevQuestion) {
+        return {
+          ...prevQuestion,
+          answers: prevQuestion.answers.map((answer) => {
+            if (answer.id === answerId) {
+              return {
+                ...answer,
+                votes: voteType === 'up' ? answer.votes + 1 : answer.votes - 1,
+              };
+            }
+            return answer;
+          }),
+        };
+      }
+      return prevQuestion;
+    });
+  };
 
   return (
     <div className="space-y-6">
@@ -18,11 +51,17 @@ export default function QuestionDetail() {
       
       <div className="flex gap-4 pb-4 border-b border-gray-200">
         <div className="flex flex-col items-center gap-2">
-          <button className="p-2 text-gray-600 hover:bg-gray-100 rounded-full">
+          <button
+            className="p-2 text-gray-600 hover:bg-gray-100 rounded-full"
+            onClick={() => handleVote(question.id, 'up')}
+          >
             <ArrowUp className="w-8 h-8" />
           </button>
           <span className="text-xl font-bold">{question.votes}</span>
-          <button className="p-2 text-gray-600 hover:bg-gray-100 rounded-full">
+          <button
+            className="p-2 text-gray-600 hover:bg-gray-100 rounded-full"
+            onClick={() => handleVote(question.id, 'down')}
+          >
             <ArrowDown className="w-8 h-8" />
           </button>
         </div>
@@ -61,11 +100,17 @@ export default function QuestionDetail() {
         {question.answers.map((answer) => (
           <div key={answer.id} className="flex gap-4 py-4 border-b border-gray-200">
             <div className="flex flex-col items-center gap-2">
-              <button className="p-2 text-gray-600 hover:bg-gray-100 rounded-full">
+              <button
+                className="p-2 text-gray-600 hover:bg-gray-100 rounded-full"
+                onClick={() => handleAnswerVote(answer.id, 'up')}
+              >
                 <ArrowUp className="w-8 h-8" />
               </button>
               <span className="text-xl font-bold">{answer.votes}</span>
-              <button className="p-2 text-gray-600 hover:bg-gray-100 rounded-full">
+              <button
+                className="p-2 text-gray-600 hover:bg-gray-100 rounded-full"
+                onClick={() => handleAnswerVote(answer.id, 'down')}
+              >
                 <ArrowDown className="w-8 h-8" />
               </button>
               {answer.isAccepted && (

@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { formatDistanceToNow } from 'date-fns';
 import { Link } from 'react-router-dom';
 import { MOCK_QUESTIONS } from '../data/mockQuestions';
+import { ArrowUp, ArrowDown } from 'lucide-react';
 
 export default function QuestionList() {
+  const [questions, setQuestions] = useState([...MOCK_QUESTIONS]);
+
+  const handleVote = (questionId: string, voteType: 'up' | 'down') => {
+    setQuestions((prevQuestions) =>
+      prevQuestions.map((question) => {
+        if (question.id === questionId) {
+          return {
+            ...question,
+            votes: voteType === 'up' ? question.votes + 1 : question.votes - 1,
+          };
+        }
+        return question;
+      })
+    );
+  };
+
   return (
     <div className="border-t border-gray-200">
-      {MOCK_QUESTIONS.map((question) => (
+      {questions.map((question) => (
         <div key={question.id} className="flex gap-4 py-4 border-b border-gray-200">
           <div className="flex flex-col items-end gap-1 text-[13px] text-gray-600 min-w-[108px]">
             <div className="text-center">
