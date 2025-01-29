@@ -1,5 +1,14 @@
 import { Question } from '../types';
 
+const getRandomDate = (start: Date, end: Date) => {
+  return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+};
+
+const startDate = new Date();
+startDate.setMonth(startDate.getMonth() - 12); // 12 months ago
+
+const endDate = new Date();
+
 export const MOCK_QUESTIONS: Question[] = [
   {
     id: '1',
@@ -8,7 +17,7 @@ export const MOCK_QUESTIONS: Question[] = [
     votes: 120,
     tags: ['lore', 'teyvat', 'story'],
     author: 'loreseeker',
-    createdAt: new Date('2024-07-01'),
+    createdAt: getRandomDate(startDate, endDate),
     views: 500,
     answers: [
       {
@@ -16,7 +25,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I\'m most curious about the nature of the Heavenly Principles and their role in the world.',
         votes: 50,
         author: 'celestialwatcher',
-        createdAt: new Date('2024-07-01'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -24,7 +33,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'The truth behind the Abyss and its connection to the lost civilization of Khaenri\'ah is what I want to know.',
         votes: 75,
         author: 'abyssalexplorer',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -32,7 +41,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I really want to know more about the twins and their origins.',
         votes: 30,
         author: 'travelerfan',
-        createdAt: new Date('2024-07-03'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
     ],
@@ -44,7 +53,7 @@ export const MOCK_QUESTIONS: Question[] = [
     votes: 95,
     tags: ['characters', 'archon', 'story'],
     author: 'characterfan',
-    createdAt: new Date('2024-07-01'),
+    createdAt: getRandomDate(startDate, endDate),
     views: 450,
     answers: [
       {
@@ -52,7 +61,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I think Dainsleif\'s backstory and his connection to Khaenri\'ah needs more attention.',
         votes: 60,
         author: 'dainsleiffan',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -60,7 +69,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I\'d love to see more about the Fatui Harbingers and their individual motivations.',
         votes: 45,
         author: 'fatuiwatcher',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -68,7 +77,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I am very interested in learning more about the past of the Archons.',
         votes: 25,
         author: 'archonlover',
-        createdAt: new Date('2024-07-03'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
     ],
@@ -80,7 +89,7 @@ export const MOCK_QUESTIONS: Question[] = [
     votes: 80,
     tags: ['plot', 'story', 'rewrite'],
     author: 'plotcritic',
-    createdAt: new Date('2024-07-01'),
+    createdAt: getRandomDate(startDate, endDate),
     views: 400,
     answers: [
       {
@@ -88,7 +97,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I would rewrite the reveal of the Traveler\'s sibling being the leader of the Abyss Order. It felt too sudden.',
         votes: 55,
         author: 'plotrewriter',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -96,7 +105,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I would change the way Signora was defeated. It felt anticlimactic.',
         votes: 35,
         author: 'signorafan',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
        {
@@ -104,7 +113,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I would make the reveal of the truth about the Cataclysm more impactful.',
         votes: 20,
         author: 'cataclysmfan',
-        createdAt: new Date('2024-07-03'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
     ],
@@ -116,7 +125,7 @@ export const MOCK_QUESTIONS: Question[] = [
     votes: 110,
     tags: ['characters', '4-star', 'story'],
     author: '4starfan',
-    createdAt: new Date('2024-07-01'),
+    createdAt: getRandomDate(startDate, endDate),
     views: 550,
     answers: [
       {
@@ -124,7 +133,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I think Fischl deserves a dedicated Story Quest to explore her unique personality and lore.',
         votes: 70,
         author: 'fischlfan',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -132,7 +141,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I would love to see more of Rosaria and her backstory.',
         votes: 50,
         author: 'rosariafan',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -140,7 +149,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I think Yanfei is a great character and deserves more screen time.',
         votes: 30,
         author: 'yanfeifan',
-        createdAt: new Date('2024-07-03'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
     ],
@@ -152,7 +161,7 @@ export const MOCK_QUESTIONS: Question[] = [
     votes: 130,
     tags: ['characters', 'design', 'aesthetics'],
     author: 'designlover',
-    createdAt: new Date('2024-07-01'),
+    createdAt: getRandomDate(startDate, endDate),
     views: 600,
     answers: [
       {
@@ -160,7 +169,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'Character design is a huge factor for me. If I don\'t like the design, I\'m less likely to pull for them.',
         votes: 80,
         author: 'designpuller',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -168,7 +177,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I care more about gameplay, but a good design is a nice bonus.',
         votes: 40,
         author: 'gameplayfirst',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -176,7 +185,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I am more interested in the lore and story, but a good design is always welcome.',
         votes: 20,
         author: 'lorefirst',
-        createdAt: new Date('2024-07-03'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
     ],
@@ -188,7 +197,7 @@ export const MOCK_QUESTIONS: Question[] = [
     votes: 100,
     tags: ['characters', 'non-human', 'playable'],
     author: 'unusualfan',
-    createdAt: new Date('2024-07-01'),
+    createdAt: getRandomDate(startDate, endDate),
     views: 520,
     answers: [
       {
@@ -196,7 +205,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I would love to see an Aranara as playable, with a kit focused on Dendro reactions and support.',
         votes: 65,
         author: 'aranarafans',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -204,7 +213,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'Dvalin would be amazing as a playable character, with a kit focused on Anemo damage and aerial combat.',
         votes: 55,
         author: 'dvalinfan',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -212,7 +221,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I think Azhdaha would be a great playable character, with a kit focused on Geo damage and tanking.',
         votes: 35,
         author: 'azhdahafan',
-        createdAt: new Date('2024-07-03'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
     ],
@@ -224,7 +233,7 @@ export const MOCK_QUESTIONS: Question[] = [
     votes: 140,
     tags: ['gameplay', 'reactions', 'elements'],
     author: 'reactionfan',
-    createdAt: new Date('2024-07-01'),
+    createdAt: getRandomDate(startDate, endDate),
     views: 650,
     answers: [
       {
@@ -232,7 +241,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'Vaporize is the most satisfying for me, because of the high damage output.',
         votes: 90,
         author: 'vaporizefan',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -240,7 +249,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I love building teams around Hyperbloom, it\'s so satisfying to see the damage numbers.',
         votes: 60,
         author: 'hyperbloomfan',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -248,7 +257,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I enjoy using Freeze teams, because of the crowd control.',
         votes: 30,
         author: 'freezefan',
-        createdAt: new Date('2024-07-03'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
     ],
@@ -260,7 +269,7 @@ export const MOCK_QUESTIONS: Question[] = [
     votes: 115,
     tags: ['gameplay', 'elements', 'new'],
     author: 'elementalist',
-    createdAt: new Date('2024-07-01'),
+    createdAt: getRandomDate(startDate, endDate),
     views: 580,
     answers: [
       {
@@ -268,7 +277,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I would add a Light element, which would have a strong reaction with the Dark element.',
         votes: 75,
         author: 'lightfan',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -276,7 +285,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I think a Sound element would be interesting, with reactions based on sound waves and vibrations.',
         votes: 55,
         author: 'soundfan',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -284,7 +293,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I would add a Time element, which could manipulate time and space.',
         votes: 35,
         author: 'timefan',
-        createdAt: new Date('2024-07-03'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
     ],
@@ -296,7 +305,7 @@ export const MOCK_QUESTIONS: Question[] = [
     votes: 125,
     tags: ['gameplay', 'artifacts', 'grind'],
     author: 'grinderhater',
-    createdAt: new Date('2024-07-01'),
+    createdAt: getRandomDate(startDate, endDate),
     views: 620,
     answers: [
       {
@@ -304,7 +313,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I would add a system to reroll artifact substats, so you don\'t have to farm for perfect artifacts.',
         votes: 85,
         author: 'rerollfan',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -312,7 +321,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I would increase the drop rate of 5-star artifacts, or add a system to craft them.',
         votes: 65,
         author: 'dropfan',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -320,7 +329,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I would add a system to lock substats, so you don\'t lose good substats when upgrading.',
         votes: 45,
         author: 'lockfan',
-        createdAt: new Date('2024-07-03'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
     ],
@@ -332,7 +341,7 @@ export const MOCK_QUESTIONS: Question[] = [
     votes: 90,
     tags: ['exploration', 'worldbuilding', 'storytelling'],
     author: 'worldexplorer',
-    createdAt: new Date('2024-07-01'),
+    createdAt: getRandomDate(startDate, endDate),
     views: 480,
     answers: [
       {
@@ -340,7 +349,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I think Sumeru has the best environmental storytelling, with the ruins and the withering zones.',
         votes: 60,
         author: 'sumerufan',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -348,7 +357,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'Inazuma has great environmental storytelling, with the remnants of the war and the Electro influence.',
         votes: 50,
         author: 'inazumafan',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -356,7 +365,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I think Liyue has the best environmental storytelling, with the ancient ruins and the history of the Geo Archon.',
         votes: 30,
         author: 'liyuefan',
-        createdAt: new Date('2024-07-03'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
     ],
@@ -368,7 +377,7 @@ export const MOCK_QUESTIONS: Question[] = [
     votes: 105,
     tags: ['exploration', 'worldbuilding', 'expansion'],
     author: 'areafan',
-    createdAt: new Date('2024-07-01'),
+    createdAt: getRandomDate(startDate, endDate),
     views: 530,
     answers: [
       {
@@ -376,7 +385,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I would love to see the Chasm expanded, with more layers and secrets to uncover.',
         votes: 70,
         author: 'chasmfan',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -384,7 +393,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'Enkanomiya should be expanded, with more lore and challenges.',
         votes: 55,
         author: 'enkanomiyafan',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -392,7 +401,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I think Dragonspine should be expanded, with more areas to explore and secrets to find.',
         votes: 35,
         author: 'dragonspinefan',
-        createdAt: new Date('2024-07-03'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
     ],
@@ -404,7 +413,7 @@ export const MOCK_QUESTIONS: Question[] = [
     votes: 85,
     tags: ['exploration', 'puzzles', 'mechanics'],
     author: 'puzzlefan',
-    createdAt: new Date('2024-07-01'),
+    createdAt: getRandomDate(startDate, endDate),
     views: 420,
     answers: [
       {
@@ -412,7 +421,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I think the current puzzles are too easy and need more complexity.',
         votes: 65,
         author: 'puzzlemaster',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -420,7 +429,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I think the current puzzles are fine, but some could be more creative.',
         votes: 45,
         author: 'puzzlelover',
-        createdAt: new Date('2024-07-02'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
       {
@@ -428,7 +437,7 @@ export const MOCK_QUESTIONS: Question[] = [
         body: 'I think the current puzzles are challenging enough for the average player.',
         votes: 25,
         author: 'puzzlecasual',
-        createdAt: new Date('2024-07-03'),
+        createdAt: getRandomDate(startDate, endDate),
         isAccepted: false,
       },
     ],
