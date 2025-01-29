@@ -23,3 +23,18 @@ export interface Tag {
   name: string;
   count: number;
 }
+
+export interface User {
+  username: string;
+  name: string;
+  email: string;
+  title: string;
+  location: string;
+  posts: number;
+  followers: number;
+  following: number;
+  bio: string;
+  skills: string[];
+  profileImage: string;
+  coverImage: string;
+}

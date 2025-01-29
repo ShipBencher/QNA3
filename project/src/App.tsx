@@ -5,6 +5,8 @@ import Sidebar from './components/Sidebar';
 import QuestionList from './components/QuestionList';
 import QuestionDetail from './components/QuestionDetail';
 import RightSidebar from './components/RightSidebar';
+import UserProfile from './components/UserProfile';
+import TagList from './components/TagList';
 
 function App() {
   return (
@@ -52,6 +54,8 @@ function App() {
                   }
                 />
                 <Route path="/questions/:id" element={<QuestionDetail />} />
+                <Route path="/users/:username" element={<UserProfile />} />
+                <Route path="/tags" element={<TagList />} />
               </Routes>
             </main>
 
