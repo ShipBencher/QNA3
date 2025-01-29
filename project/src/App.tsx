@@ -13,6 +13,7 @@ import ForgotPassword from './components/ForgotPassword';
 import UserList from './components/UserList';
 import AskQuestion from './components/AskQuestion';
 import Categories from './components/Categories';
+import TagDetail from './components/TagDetail';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
                 <Route path="/users/:username" element={<UserProfile />} />
                 <Route path="/users" element={<UserList />} />
                 <Route path="/tags" element={<TagList />} />
+                 <Route path="/tags/:tag" element={<TagDetail />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
