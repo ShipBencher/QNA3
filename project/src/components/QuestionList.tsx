@@ -6,6 +6,8 @@ import { ArrowUp, ArrowDown } from 'lucide-react';
 
 export default function QuestionList() {
   const [questions, setQuestions] = useState([...MOCK_QUESTIONS]);
+  const [sortBy, setSortBy] = useState<'votes' | 'createdAt' | 'views'>('createdAt');
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
 
   const handleVote = (questionId: string, voteType: 'up' | 'down') => {
     setQuestions((prevQuestions) =>
@@ -21,9 +23,51 @@ export default function QuestionList() {
     );
   };
 
+  const handleSort = (field: 'votes' | 'createdAt' | 'views') => {
+    if (sortBy === field) {
+      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortBy(field);
+      setSortOrder('desc');
+    }
+  };
+
+  const sortedQuestions = [...questions].sort((a, b) => {
+    const aValue = sortBy === 'createdAt' ? a.createdAt.getTime() : a[sortBy];
+    const bValue = sortBy === 'createdAt' ? b.createdAt.getTime() : b[sortBy];
+
+    if (aValue < bValue) {
+      return sortOrder === 'asc' ? -1 : 1;
+    }
+    if (aValue > bValue) {
+      return sortOrder === 'asc' ? 1 : -1;
+    }
+    return 0;
+  });
+
   return (
     <div className="border-t border-gray-200">
-      {questions.map((question) => (
+      <div className="flex justify-end gap-4 mb-4">
+        <button
+          onClick={() => handleSort('votes')}
+          className={`px-3 py-1.5 text-gray-600 hover:bg-gray-100 rounded-md ${sortBy === 'votes' ? 'font-bold' : ''}`}
+        >
+          Votes
+        </button>
+        <button
+          onClick={() => handleSort('createdAt')}
+          className={`px-3 py-1.5 text-gray-600 hover:bg-gray-100 rounded-md ${sortBy === 'createdAt' ? 'font-bold' : ''}`}
+        >
+          Date
+        </button>
+        <button
+          onClick={() => handleSort('views')}
+          className={`px-3 py-1.5 text-gray-600 hover:bg-gray-100 rounded-md ${sortBy === 'views' ? 'font-bold' : ''}`}
+        >
+          Views
+        </button>
+      </div>
+      {sortedQuestions.map((question) => (
         <div key={question.id} className="flex gap-4 py-4 border-b border-gray-200">
           <div className="flex flex-col items-end gap-1 text-[13px] text-gray-600 min-w-[108px]">
             <div className="text-center">

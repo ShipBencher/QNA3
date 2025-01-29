@@ -10,6 +10,7 @@ import TagList from './components/TagList';
 import Register from './components/Register';
 import Login from './components/Login';
 import ForgotPassword from './components/ForgotPassword';
+import UserList from './components/UserList';
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
                 />
                 <Route path="/questions/:id" element={<QuestionDetail />} />
                 <Route path="/users/:username" element={<UserProfile />} />
+                <Route path="/users" element={<UserList />} />
                 <Route path="/tags" element={<TagList />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
