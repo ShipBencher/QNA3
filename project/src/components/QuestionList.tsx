@@ -8,6 +8,7 @@ export default function QuestionList() {
   const [questions, setQuestions] = useState([...MOCK_QUESTIONS]);
   const [sortBy, setSortBy] = useState<'votes' | 'createdAt' | 'views'>('createdAt');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
+  const [filter, setFilter] = useState<'interesting' | 'featured' | 'hot' | 'week' | 'month'>('interesting');
 
   const handleVote = (questionId: string, voteType: 'up' | 'down') => {
     setQuestions((prevQuestions) =>
@@ -32,7 +33,11 @@ export default function QuestionList() {
     }
   };
 
-  const sortedQuestions = [...questions].sort((a, b) => {
+  const handleFilter = (filterType: 'interesting' | 'featured' | 'hot' | 'week' | 'month') => {
+    setFilter(filterType);
+  };
+
+  const filteredQuestions = [...questions].sort((a, b) => {
     const aValue = sortBy === 'createdAt' ? a.createdAt.getTime() : a[sortBy];
     const bValue = sortBy === 'createdAt' ? b.createdAt.getTime() : b[sortBy];
 
@@ -43,10 +48,63 @@ export default function QuestionList() {
       return sortOrder === 'asc' ? 1 : -1;
     }
     return 0;
+  }).filter(question => {
+    if (filter === 'interesting') {
+      return true;
+    }
+    if (filter === 'featured') {
+      return question.votes > 100;
+    }
+    if (filter === 'hot') {
+      return question.views > 500;
+    }
+    if (filter === 'week') {
+      const weekAgo = new Date();
+      weekAgo.setDate(weekAgo.getDate() - 7);
+      return question.createdAt > weekAgo;
+    }
+    if (filter === 'month') {
+      const monthAgo = new Date();
+      monthAgo.setMonth(monthAgo.getMonth() - 1);
+      return question.createdAt > monthAgo;
+    }
+    return true;
   });
 
   return (
     <div className="border-t border-gray-200">
+      <div className="flex justify-start gap-4 mb-4">
+        <button
+          onClick={() => handleFilter('interesting')}
+          className={`px-3 py-1.5 text-gray-600 bg-white hover:bg-gray-50 border border-gray-300 rounded-md ${filter === 'interesting' ? 'font-bold' : ''}`}
+        >
+          Interesting
+        </button>
+        <button
+          onClick={() => handleFilter('featured')}
+          className={`px-3 py-1.5 text-gray-600 hover:bg-gray-100 rounded-md ${filter === 'featured' ? 'font-bold' : ''}`}
+        >
+          Featured
+        </button>
+        <button
+          onClick={() => handleFilter('hot')}
+          className={`px-3 py-1.5 text-gray-600 hover:bg-gray-100 rounded-md ${filter === 'hot' ? 'font-bold' : ''}`}
+        >
+          Hot
+        </button>
+        <button
+          onClick={() => handleFilter('week')}
+          className={`px-3 py-1.5 text-gray-600 hover:bg-gray-100 rounded-md ${filter === 'week' ? 'font-bold' : ''}`}
+        >
+          Week
+        </button>
+        <button
+          onClick={() => handleFilter('month')}
+          className={`px-3 py-1.5 text-gray-600 hover:bg-gray-100 rounded-md ${filter === 'month' ? 'font-bold' : ''}`}
+        >
+          Month
+        </button>
+      </div>
       <div className="flex justify-end gap-4 mb-4">
         <button
           onClick={() => handleSort('votes')}
@@ -67,7 +125,7 @@ export default function QuestionList() {
           Views
         </button>
       </div>
-      {sortedQuestions.map((question) => (
+      {filteredQuestions.map((question) => (
         <div key={question.id} className="flex gap-4 py-4 border-b border-gray-200">
           <div className="flex flex-col items-end gap-1 text-[13px] text-gray-600 min-w-[108px]">
             <div className="text-center">
