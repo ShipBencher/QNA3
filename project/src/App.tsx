@@ -37,24 +37,6 @@ function App() {
                         </Link>
                       </div>
                       
-                      <div className="flex flex-wrap items-center gap-2 mb-4 text-sm">
-                        <button className="px-3 py-1.5 text-gray-600 bg-white hover:bg-gray-50 border border-gray-300 rounded-md">
-                          Interesting
-                        </button>
-                        <button className="px-3 py-1.5 text-gray-600 hover:bg-gray-100 rounded-md">
-                          Featured
-                        </button>
-                        <button className="px-3 py-1.5 text-gray-600 hover:bg-gray-100 rounded-md">
-                          Hot
-                        </button>
-                        <button className="px-3 py-1.5 text-gray-600 hover:bg-gray-100 rounded-md">
-                          Week
-                        </button>
-                        <button className="px-3 py-1.5 text-gray-600 hover:bg-gray-100 rounded-md">
-                          Month
-                        </button>
-                      </div>
-                      
                       <QuestionList />
                     </>
                   }
