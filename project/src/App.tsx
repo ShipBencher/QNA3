@@ -12,6 +12,7 @@ import Login from './components/Login';
 import ForgotPassword from './components/ForgotPassword';
 import UserList from './components/UserList';
 import AskQuestion from './components/AskQuestion';
+import Categories from './components/Categories';
 
 function App() {
   return (
@@ -67,6 +68,7 @@ function App() {
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/ask" element={<AskQuestion />} />
                 <Route path="/questions" element={<QuestionList />} />
+                <Route path="/categories" element={<Categories />} />
               </Routes>
             </main>
 

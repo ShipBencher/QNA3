@@ -30,12 +30,12 @@ export default function Sidebar() {
         
         <div className="mt-8">
           <div className="pl-6 mb-1">
-            <span className="text-[11px] text-gray-600">COLLECTIVES</span>
+            <span className="text-[11px] text-gray-600">CATEGORIES</span>
           </div>
-          <a href="/collectives" className="flex items-center gap-1 px-2 py-1.5 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-md">
+          <Link to="/categories" className="flex items-center gap-1 px-2 py-1.5 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-md">
             <Star className="w-4 h-4" />
-            <span className="text-[13px]">Explore Collectives</span>
-          </a>
+            <span className="text-[13px]">Explore Categories</span>
+          </Link>
         </div>
         
         <div className="mt-8">
