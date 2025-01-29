@@ -1,5 +1,6 @@
 import React from 'react';
 import { Search, Menu, Zap } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
@@ -10,14 +11,14 @@ export default function Header() {
             <button className="lg:hidden">
               <Menu className="w-6 h-6" />
             </button>
-            <a href="/" className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-2">
               <Zap className="w-8 h-8 text-orange-500" />
               <span className="hidden md:block text-xl font-medium">bolt<span className="font-bold">overflow</span></span>
-            </a>
+            </Link>
             <nav className="hidden lg:flex items-center gap-4">
-              <a href="#" className="text-sm text-gray-600 hover:text-gray-900">Questions</a>
-              <a href="#" className="text-sm text-gray-600 hover:text-gray-900">Tags</a>
-              <a href="#" className="text-sm text-gray-600 hover:text-gray-900">Users</a>
+              <Link to="/questions" className="text-sm text-gray-600 hover:text-gray-900">Questions</Link>
+              <Link to="/tags" className="text-sm text-gray-600 hover:text-gray-900">Tags</Link>
+              <Link to="/users" className="text-sm text-gray-600 hover:text-gray-900">Users</Link>
             </nav>
           </div>
           
@@ -33,8 +34,8 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-4">
-            <button className="hidden md:block px-4 py-2 text-sm text-blue-600 hover:bg-blue-50 rounded-md">Log in</button>
-            <button className="px-4 py-2 text-sm text-white bg-blue-600 hover:bg-blue-700 rounded-md">Sign up</button>
+            <Link to="/login" className="hidden md:block px-4 py-2 text-sm text-blue-600 hover:bg-blue-50 rounded-md">Log in</Link>
+            <Link to="/register" className="px-4 py-2 text-sm text-white bg-blue-600 hover:bg-blue-700 rounded-md">Sign up</Link>
           </div>
         </div>
       </div>

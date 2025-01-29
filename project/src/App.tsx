@@ -7,6 +7,9 @@ import QuestionDetail from './components/QuestionDetail';
 import RightSidebar from './components/RightSidebar';
 import UserProfile from './components/UserProfile';
 import TagList from './components/TagList';
+import Register from './components/Register';
+import Login from './components/Login';
+import ForgotPassword from './components/ForgotPassword';
 
 function App() {
   return (
@@ -56,6 +59,9 @@ function App() {
                 <Route path="/questions/:id" element={<QuestionDetail />} />
                 <Route path="/users/:username" element={<UserProfile />} />
                 <Route path="/tags" element={<TagList />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
               </Routes>
             </main>
 
