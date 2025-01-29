@@ -42,10 +42,10 @@ export default function Sidebar() {
             <span className="text-[11px] text-gray-600">TEAMS</span>
           </div>
           <div className="px-2 py-1.5 text-[13px] text-gray-600">
-            <p>Questions and Answers for Genshin Impact Fans – Start sharing forbidden knowledge.</p>
-            <img src="https://i.imgur.com/a5oWZVU.jpeg" alt="I'm Sorry" className="w-32 mx-auto my-2" />
+            <p>Stack Overflow for Teams – Start collaborating and sharing organizational knowledge.</p>
+            <img src="https://cdn.sstatic.net/Img/teams/teams-illo-free-sidebar-promo.svg" alt="Teams illustration" className="w-32 mx-auto my-2" />
             <button className="w-full px-2 py-1.5 text-[13px] text-white bg-[#0a95ff] hover:bg-[#0074cc] rounded-md">
-              Ask a Question
+              Create a free Team
             </button>
           </div>
         </div>

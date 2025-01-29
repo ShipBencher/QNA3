@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import QuestionList from './components/QuestionList';
@@ -11,6 +11,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import ForgotPassword from './components/ForgotPassword';
 import UserList from './components/UserList';
+import AskQuestion from './components/AskQuestion';
 
 function App() {
   return (
@@ -30,9 +31,9 @@ function App() {
                     <>
                       <div className="flex items-center justify-between mb-4">
                         <h1 className="text-2xl font-bold">Top Questions</h1>
-                        <button className="px-4 py-2 text-sm text-white bg-[#0a95ff] hover:bg-[#0074cc] rounded-md">
+                        <Link to="/ask" className="px-4 py-2 text-sm text-white bg-[#0a95ff] hover:bg-[#0074cc] rounded-md">
                           Ask Question
-                        </button>
+                        </Link>
                       </div>
                       
                       <div className="flex flex-wrap items-center gap-2 mb-4 text-sm">
@@ -64,6 +65,8 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/ask" element={<AskQuestion />} />
+                <Route path="/questions" element={<QuestionList />} />
               </Routes>
             </main>
 
